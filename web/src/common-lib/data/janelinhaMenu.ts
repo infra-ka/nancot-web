@@ -15,6 +15,7 @@ export const janelinhaMenu: MenuItem[] = [
     description:
       "Salami, ham, pepperoni, provolone, lettuce, tomato, red onion, bell pepper, olive oil, oregano.",
     price: 28.9,
+    imageAssetId: "italian-sub",
     imageEmoji: "🥖",
     options: [
       {
@@ -31,6 +32,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Philadelphia Sub Cheese Steak",
     description: "Sliced beef, bell peppers, onion, and sub bread.",
     price: 32.9,
+    imageAssetId: "philadelphia-sub",
     imageEmoji: "🥩",
     options: [
       {
@@ -47,6 +49,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Chicken Parma",
     description: "Breaded chicken, marinara sauce, mozzarella, parmesan, oregano.",
     price: 30.9,
+    imageAssetId: "chicken-parma",
     imageEmoji: "🍗"
   },
   {
@@ -55,6 +58,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Weiss",
     description: "Light, refreshing, fruity draft beer with a 5.2% ABV profile.",
     price: 14.9,
+    imageAssetId: "weiss",
     imageEmoji: "🍺"
   },
   {
@@ -63,6 +67,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Pilsen",
     description: "Classic, light, and balanced draft beer with 4.7% ABV.",
     price: 13.9,
+    imageAssetId: "pilsen",
     imageEmoji: "🍺"
   },
   {
@@ -71,6 +76,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "IPA",
     description: "Intense, fruity, and marked bitterness with 6.5% ABV.",
     price: 16.9,
+    imageAssetId: "ipa",
     imageEmoji: "🍺"
   },
   {
@@ -79,6 +85,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Cappuccino",
     description: "Espresso coffee with steamed milk and creamy foam.",
     price: 11.9,
+    imageAssetId: "cappuccino",
     imageEmoji: "☕"
   },
   {
@@ -87,6 +94,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Filtered coffee",
     description: "Simple, full-bodied coffee made fresh.",
     price: 7.9,
+    imageAssetId: "filtered-coffee",
     imageEmoji: "☕"
   },
   {
@@ -95,6 +103,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Water",
     description: "Still or sparkling water.",
     price: 5.9,
+    imageAssetId: "water",
     imageEmoji: "💧"
   },
   {
@@ -103,6 +112,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Soda",
     description: "Assorted canned soda options.",
     price: 7.9,
+    imageAssetId: "soda",
     imageEmoji: "🥤"
   },
   {
@@ -111,6 +121,7 @@ export const janelinhaMenu: MenuItem[] = [
     name: "Juice",
     description: "Selected fresh flavors.",
     price: 9.9,
+    imageAssetId: "juice",
     imageEmoji: "🧃"
   }
 ];

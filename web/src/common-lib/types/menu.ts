@@ -13,6 +13,7 @@ export type MenuItem = {
   name: string;
   description: string;
   price: number;
+  imageAssetId?: string;
   imageEmoji?: string;
   options?: MenuOptionGroup[];
 };

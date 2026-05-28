@@ -4,6 +4,7 @@ import { useI18n } from "../../i18n/I18nProvider";
 import { MenuItem } from "../../types/menu";
 import { formatCurrency } from "../../utils/format";
 import { CyberButton } from "../CyberButton/CyberButton";
+import { ItemImage } from "../ItemImage/ItemImage";
 import "./ProductModal.css";
 
 type ProductModalProps = {
@@ -36,7 +37,7 @@ export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: Produc
           <X size={20} />
         </button>
         <div className="product-modal__hero" aria-hidden="true">
-          {item.imageEmoji}
+          <ItemImage alt={item.name} assetId={item.imageAssetId} fallbackEmoji={item.imageEmoji} size="modal" />
         </div>
         <p className="product-modal__eyebrow">{messages.product.customizeOrder}</p>
         <h2>{item.name}</h2>

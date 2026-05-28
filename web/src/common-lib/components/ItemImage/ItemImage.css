@@ -1,0 +1,17 @@
+.item-image {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.item-image--fallback {
+  align-items: center;
+  display: flex;
+  font-size: 2.7rem;
+  justify-content: center;
+}
+
+.item-image--modal.item-image--fallback {
+  font-size: 4rem;
+}

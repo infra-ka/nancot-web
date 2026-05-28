@@ -3,6 +3,7 @@ import { useI18n } from "../../i18n/I18nProvider";
 import { MenuItem } from "../../types/menu";
 import { formatCurrency } from "../../utils/format";
 import { CyberButton } from "../CyberButton/CyberButton";
+import { ItemImage } from "../ItemImage/ItemImage";
 import "./ProductCard.css";
 
 type ProductCardProps = {
@@ -16,7 +17,7 @@ export function ProductCard({ item, onSelect }: ProductCardProps) {
   return (
     <article className="product-card haptic-target" aria-label={item.name}>
       <div className="product-card__signal" aria-hidden="true">
-        {item.imageEmoji}
+        <ItemImage alt={item.name} assetId={item.imageAssetId} fallbackEmoji={item.imageEmoji} />
       </div>
       <div className="product-card__content">
         <p className="product-card__category">{messages.categories[item.category]}</p>

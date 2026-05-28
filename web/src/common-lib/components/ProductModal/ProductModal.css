@@ -1,0 +1,153 @@
+.modal-backdrop {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.74);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 40;
+}
+
+.product-modal,
+.checkout-modal,
+.camera-modal {
+  background: linear-gradient(145deg, rgba(2, 8, 11, 0.98), rgba(2, 38, 41, 0.95));
+  border: 1px solid var(--color-cyan);
+  border-radius: 8px;
+  box-shadow: 0 0 34px rgba(0, 245, 255, 0.35);
+  max-height: min(92vh, 820px);
+  max-width: 720px;
+  overflow: auto;
+  padding: clamp(1rem, 4vw, 1.5rem);
+  position: relative;
+  width: min(100%, 720px);
+}
+
+.modal-close {
+  align-items: center;
+  background: rgba(255, 77, 109, 0.16);
+  border: 1px solid var(--color-danger);
+  border-radius: 7px;
+  color: var(--color-danger);
+  cursor: pointer;
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 42px;
+}
+
+.product-modal__hero {
+  align-items: center;
+  background: radial-gradient(circle, rgba(255, 155, 50, 0.32), rgba(0, 245, 255, 0.08));
+  border: 1px solid rgba(255, 216, 77, 0.42);
+  border-radius: 8px;
+  display: flex;
+  font-size: 4rem;
+  height: 104px;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 104px;
+}
+
+.product-modal__eyebrow,
+.checkout-modal__eyebrow {
+  color: var(--color-cyan);
+  font-family: var(--font-display);
+  font-weight: 800;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+}
+
+.product-modal h2,
+.checkout-modal h2,
+.camera-modal h2 {
+  color: var(--color-green);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 6vw, 2.8rem);
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0 3rem 0.75rem 0;
+  text-transform: uppercase;
+}
+
+.product-modal__description {
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.product-modal__price {
+  color: var(--color-yellow);
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.product-modal__options {
+  border: 1px solid rgba(0, 245, 255, 0.28);
+  border-radius: 8px;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.product-modal__options legend {
+  color: var(--color-green);
+  font-family: var(--font-display);
+  font-weight: 800;
+  padding-inline: 0.5rem;
+  text-transform: uppercase;
+}
+
+.product-modal__option-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.option-chip {
+  align-items: center;
+  border: 1px solid rgba(0, 245, 255, 0.42);
+  border-radius: 7px;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.7rem;
+}
+
+.option-chip--selected {
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 14px rgba(255, 216, 77, 0.3);
+  color: var(--color-yellow);
+}
+
+.quantity-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.quantity-row span {
+  color: var(--color-muted);
+}
+
+.quantity-row__controls {
+  align-items: center;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.quantity-row__controls .cyber-button {
+  min-height: 42px;
+  padding: 0.45rem 0.85rem;
+}
+
+.product-modal__actions {
+  display: grid;
+  gap: 0.75rem;
+}

@@ -1,0 +1,25 @@
+.camera-modal__copy,
+.camera-modal__status {
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.camera-modal__placeholder,
+.camera-modal__video {
+  align-items: center;
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(0, 245, 255, 0.38);
+  border-radius: 8px;
+  color: var(--color-cyan);
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  object-fit: cover;
+  width: 100%;
+}
+
+.camera-modal__actions {
+  display: grid;
+  gap: 0.65rem;
+}

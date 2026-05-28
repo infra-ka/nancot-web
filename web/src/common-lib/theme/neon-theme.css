@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body::before {
+  background:
+    linear-gradient(rgba(0, 245, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 50% -10%, rgba(0, 245, 255, 0.24), transparent 34rem);
+  background-size: 28px 28px, 28px 28px, auto;
+  content: "";
+  inset: 0;
+  opacity: 0.72;
+  pointer-events: none;
+  position: fixed;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.haptic-target {
+  touch-action: manipulation;
+}
+
+.haptic-target--selected {
+  box-shadow: 0 0 18px rgba(255, 216, 77, 0.38);
+}
+
+.haptic-target--confirm {
+  border-color: var(--color-green);
+}
+
+.haptic-target--danger {
+  border-color: var(--color-danger);
+}

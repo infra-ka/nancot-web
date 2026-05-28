@@ -1,0 +1,54 @@
+.cyber-button {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.18), rgba(141, 255, 90, 0.12));
+  border: 1px solid var(--color-cyan);
+  border-radius: 7px;
+  box-shadow: 0 0 14px rgba(0, 245, 255, 0.24), inset 0 0 16px rgba(0, 245, 255, 0.08);
+  color: var(--color-white);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  justify-content: center;
+  letter-spacing: 0;
+  min-height: 46px;
+  padding: 0.78rem 1rem;
+  text-transform: uppercase;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.42), inset 0 0 18px rgba(141, 255, 90, 0.12);
+  transform: translateY(-1px);
+}
+
+.cyber-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.cyber-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.54;
+}
+
+.cyber-button--primary {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+.cyber-button--secondary {
+  border-color: var(--color-yellow);
+  color: var(--color-yellow);
+}
+
+.cyber-button--danger {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.cyber-button--ghost {
+  background: rgba(2, 8, 11, 0.62);
+  color: var(--color-cyan);
+}

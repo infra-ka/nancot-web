@@ -1,0 +1,84 @@
+import { ShoppingBag, Trash2, X } from "lucide-react";
+import { CartItem } from "../../types/cart";
+import { formatCurrency } from "../../utils/format";
+import { CyberButton } from "../CyberButton/CyberButton";
+import "./CartDrawer.css";
+
+type CartDrawerProps = {
+  items: CartItem[];
+  subtotal: number;
+  onClose: () => void;
+  onFinishOrder: () => void;
+  onRemoveItem: (cartItemId: string) => void;
+  onUpdateQuantity: (cartItemId: string, quantity: number) => void;
+};
+
+export function CartDrawer({
+  items,
+  subtotal,
+  onClose,
+  onFinishOrder,
+  onRemoveItem,
+  onUpdateQuantity
+}: CartDrawerProps) {
+  return (
+    <div className="cart-backdrop" role="presentation">
+      <aside aria-modal="true" aria-label="Current order" className="cart-drawer" role="dialog">
+        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label="Close cart">
+          <X size={20} />
+        </button>
+        <h2>
+          <ShoppingBag size={24} /> Current order
+        </h2>
+        {items.length === 0 ? (
+          <p className="cart-drawer__empty">Your order is waiting for a first signal.</p>
+        ) : (
+          <div className="cart-drawer__items">
+            {items.map((item) => (
+              <article className="cart-item" key={item.cartItemId}>
+                <div>
+                  <h3>{item.name}</h3>
+                  {item.selectedOptions ? (
+                    <p>{Object.values(item.selectedOptions).join(", ")}</p>
+                  ) : null}
+                  <strong>{formatCurrency(item.price)}</strong>
+                </div>
+                <div className="cart-item__controls">
+                  <CyberButton
+                    aria-label={`Decrease ${item.name}`}
+                    onClick={() => onUpdateQuantity(item.cartItemId, item.quantity - 1)}
+                    variant="ghost"
+                  >
+                    -
+                  </CyberButton>
+                  <span>{item.quantity}</span>
+                  <CyberButton
+                    aria-label={`Increase ${item.name}`}
+                    onClick={() => onUpdateQuantity(item.cartItemId, item.quantity + 1)}
+                    variant="ghost"
+                  >
+                    +
+                  </CyberButton>
+                  <button
+                    aria-label={`Remove ${item.name}`}
+                    className="cart-item__remove haptic-target haptic-target--danger"
+                    onClick={() => onRemoveItem(item.cartItemId)}
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+        <div className="cart-drawer__total">
+          <span>Subtotal</span>
+          <strong>{formatCurrency(subtotal)}</strong>
+        </div>
+        <CyberButton disabled={items.length === 0} onClick={onFinishOrder} className="haptic-target--confirm">
+          Finish order
+        </CyberButton>
+      </aside>
+    </div>
+  );
+}

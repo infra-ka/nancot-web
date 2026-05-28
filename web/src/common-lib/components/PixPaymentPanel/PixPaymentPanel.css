@@ -1,0 +1,44 @@
+.pix-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.pix-panel__qr {
+  align-items: center;
+  background: radial-gradient(circle, rgba(141, 255, 90, 0.18), rgba(0, 245, 255, 0.06));
+  border: 1px solid var(--color-green);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.pix-panel__code {
+  color: var(--color-cyan);
+  display: grid;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pix-panel__code textarea {
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(0, 245, 255, 0.34);
+  border-radius: 7px;
+  color: var(--color-white);
+  min-height: 96px;
+  padding: 0.8rem;
+  resize: vertical;
+}
+
+.pix-panel__actions {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.pix-panel__feedback {
+  color: var(--color-green);
+  font-weight: 800;
+  margin: 0;
+}

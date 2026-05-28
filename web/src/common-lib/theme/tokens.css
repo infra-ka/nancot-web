@@ -1,0 +1,16 @@
+:root {
+  --color-bg: #02080b;
+  --color-panel: rgba(3, 20, 24, 0.86);
+  --color-cyan: #00f5ff;
+  --color-green: #8dff5a;
+  --color-yellow: #ffd84d;
+  --color-orange: #ff9b32;
+  --color-white: #f4ffff;
+  --color-muted: #8db7bb;
+  --color-danger: #ff4d6d;
+  --font-display: "Trebuchet MS", "Orbitron", sans-serif;
+  --font-body: "Verdana", sans-serif;
+  --shadow-cyan: 0 0 22px rgba(0, 245, 255, 0.28);
+  --shadow-green: 0 0 22px rgba(141, 255, 90, 0.2);
+  --shadow-yellow: 0 0 22px rgba(255, 216, 77, 0.22);
+}

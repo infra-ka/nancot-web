@@ -1,6 +1,7 @@
 import { CheckCircle2, Video, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useCameraPermission } from "../../hooks/useCameraPermission";
+import { useI18n } from "../../i18n/I18nProvider";
 import { CyberButton } from "../CyberButton/CyberButton";
 import "./CameraPermissionModal.css";
 
@@ -10,6 +11,7 @@ type CameraPermissionModalProps = {
 };
 
 export function CameraPermissionModal({ onClose, onDetected }: CameraPermissionModalProps) {
+  const { messages } = useI18n();
   const { status, stream, requestCamera, stop } = useCameraPermission();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -33,30 +35,30 @@ export function CameraPermissionModal({ onClose, onDetected }: CameraPermissionM
 
   return (
     <div className="modal-backdrop" role="presentation">
-      <section aria-modal="true" aria-label="Camera permission" className="camera-modal" role="dialog">
-        <button className="modal-close haptic-target haptic-target--danger" onClick={close} aria-label="Close camera permission">
+      <section aria-modal="true" aria-label={messages.camera.title} className="camera-modal" role="dialog">
+        <button className="modal-close haptic-target haptic-target--danger" onClick={close} aria-label={messages.camera.close}>
           <X size={20} />
         </button>
-        <p className="checkout-modal__eyebrow">Physical QR Code</p>
-        <h2>Camera scan</h2>
+        <p className="checkout-modal__eyebrow">{messages.camera.eyebrow}</p>
+        <h2>{messages.camera.title}</h2>
         <p className="camera-modal__copy">
-          The app needs camera access to preview a physical QR Code at the counter.
+          {messages.camera.copy}
         </p>
         {status === "granted" ? (
-          <video ref={videoRef} autoPlay muted playsInline className="camera-modal__video" aria-label="Camera preview" />
+          <video ref={videoRef} autoPlay muted playsInline className="camera-modal__video" aria-label={messages.camera.preview} />
         ) : (
           <div className="camera-modal__placeholder">
             <Video size={42} />
           </div>
         )}
-        {status === "denied" ? <p className="camera-modal__status">Camera permission was blocked by the browser.</p> : null}
-        {status === "unsupported" ? <p className="camera-modal__status">This browser does not support camera access.</p> : null}
+        {status === "denied" ? <p className="camera-modal__status">{messages.camera.denied}</p> : null}
+        {status === "unsupported" ? <p className="camera-modal__status">{messages.camera.unsupported}</p> : null}
         <div className="camera-modal__actions">
           <CyberButton onClick={requestCamera} disabled={status === "requesting"}>
-            <Video size={18} /> Allow camera
+            <Video size={18} /> {messages.camera.allow}
           </CyberButton>
           <CyberButton onClick={detectQrCode} disabled={status !== "granted"} variant="secondary">
-            <CheckCircle2 size={18} /> Simulate QR Code read
+            <CheckCircle2 size={18} /> {messages.camera.simulate}
           </CyberButton>
         </div>
       </section>

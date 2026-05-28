@@ -1,4 +1,5 @@
 import { ShoppingBag, Trash2, X } from "lucide-react";
+import { useI18n } from "../../i18n/I18nProvider";
 import { CartItem } from "../../types/cart";
 import { formatCurrency } from "../../utils/format";
 import { CyberButton } from "../CyberButton/CyberButton";
@@ -21,17 +22,19 @@ export function CartDrawer({
   onRemoveItem,
   onUpdateQuantity
 }: CartDrawerProps) {
+  const { messages } = useI18n();
+
   return (
     <div className="cart-backdrop" role="presentation">
-      <aside aria-modal="true" aria-label="Current order" className="cart-drawer" role="dialog">
-        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label="Close cart">
+      <aside aria-modal="true" aria-label={messages.cart.title} className="cart-drawer" role="dialog">
+        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label={messages.cart.close}>
           <X size={20} />
         </button>
         <h2>
-          <ShoppingBag size={24} /> Current order
+          <ShoppingBag size={24} /> {messages.cart.title}
         </h2>
         {items.length === 0 ? (
-          <p className="cart-drawer__empty">Your order is waiting for a first signal.</p>
+          <p className="cart-drawer__empty">{messages.cart.empty}</p>
         ) : (
           <div className="cart-drawer__items">
             {items.map((item) => (
@@ -45,7 +48,7 @@ export function CartDrawer({
                 </div>
                 <div className="cart-item__controls">
                   <CyberButton
-                    aria-label={`Decrease ${item.name}`}
+                    aria-label={`${messages.cart.decrease} ${item.name}`}
                     onClick={() => onUpdateQuantity(item.cartItemId, item.quantity - 1)}
                     variant="ghost"
                   >
@@ -53,14 +56,14 @@ export function CartDrawer({
                   </CyberButton>
                   <span>{item.quantity}</span>
                   <CyberButton
-                    aria-label={`Increase ${item.name}`}
+                    aria-label={`${messages.cart.increase} ${item.name}`}
                     onClick={() => onUpdateQuantity(item.cartItemId, item.quantity + 1)}
                     variant="ghost"
                   >
                     +
                   </CyberButton>
                   <button
-                    aria-label={`Remove ${item.name}`}
+                    aria-label={`${messages.cart.remove} ${item.name}`}
                     className="cart-item__remove haptic-target haptic-target--danger"
                     onClick={() => onRemoveItem(item.cartItemId)}
                   >
@@ -72,11 +75,11 @@ export function CartDrawer({
           </div>
         )}
         <div className="cart-drawer__total">
-          <span>Subtotal</span>
+          <span>{messages.cart.subtotal}</span>
           <strong>{formatCurrency(subtotal)}</strong>
         </div>
         <CyberButton disabled={items.length === 0} onClick={onFinishOrder} className="haptic-target--confirm">
-          Finish order
+          {messages.cart.finishOrder}
         </CyberButton>
       </aside>
     </div>

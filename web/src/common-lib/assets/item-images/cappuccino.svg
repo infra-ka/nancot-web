@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Cappuccino placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <ellipse cx="76" cy="53" rx="42" ry="20" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M36 53c4 30 75 30 81 0" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M117 52h14c10 1 8 18-5 20h-13" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M55 52c10-12 25 12 42-2" fill="none" stroke="#ffd84d" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="77" cy="86" rx="48" ry="8" fill="none" stroke="#8dff5a" stroke-width="3"/>
+</svg>

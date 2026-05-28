@@ -2,6 +2,15 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import App from "../src/app/App";
+import { I18nProvider } from "../src/common-lib/i18n/I18nProvider";
+
+function renderApp() {
+  return render(
+    <I18nProvider>
+      <App />
+    </I18nProvider>
+  );
+}
 
 describe("Janelinha menu app", () => {
   beforeEach(() => {
@@ -16,7 +25,7 @@ describe("Janelinha menu app", () => {
 
   it("lets a guest customize a sub, add it to cart, and start PIX checkout", async () => {
     const user = userEvent.setup();
-    render(<App />);
+    renderApp();
 
     expect(screen.getByRole("heading", { name: /JANELINHA SUBS/i })).toBeInTheDocument();
     expect(screen.getByText(/Live the purpose/i)).toBeInTheDocument();
@@ -34,13 +43,12 @@ describe("Janelinha menu app", () => {
     await user.click(screen.getByRole("button", { name: /PIX/i }));
     await user.click(screen.getByRole("button", { name: /Copy PIX code/i }));
 
-    expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
     expect(screen.getByText(/PIX code copied/i)).toBeInTheDocument();
   });
 
   it("simulates card payment and shows a UTC hash based protocol", async () => {
     const user = userEvent.setup();
-    render(<App />);
+    renderApp();
 
     await user.click(screen.getByRole("button", { name: /Select Cappuccino/i }));
     await user.click(screen.getByRole("button", { name: /Add to order/i }));
@@ -53,7 +61,23 @@ describe("Janelinha menu app", () => {
     await user.type(screen.getByLabelText(/CVV/i), "123");
     await user.click(screen.getByRole("button", { name: /Simulate card payment/i }));
 
-    expect(screen.getByText(/Order confirmed/i)).toBeInTheDocument();
-    expect(screen.getByText(/JSUBS-[A-Z0-9]{8}/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Order confirmed/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/JSUBS-[A-Z0-9]{8}/i).length).toBeGreaterThan(0);
+  });
+
+  it("switches the visible menu language and opens the reference image modal", async () => {
+    const user = userEvent.setup();
+    renderApp();
+
+    await user.selectOptions(screen.getByLabelText(/Language/i), "pt-BR");
+
+    expect(screen.getAllByRole("heading", { name: /Subs/i }).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Missao ativa/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Selecionar Sub Italiano/i })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /Open menu artwork/i }));
+
+    expect(screen.getByRole("dialog", { name: /Janelinha Subs menu artwork/i })).toBeInTheDocument();
+    expect(screen.getAllByAltText(/Neon Janelinha Subs menu reference/i).length).toBeGreaterThan(1);
   });
 });

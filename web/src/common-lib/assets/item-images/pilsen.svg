@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Pilsen draft beer placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M58 29h42l-4 60H62L58 29Z" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M100 43h14c11 0 11 27-2 27h-12" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M64 45h30l-2 39H66l-2-39Z" fill="#ff9b32" opacity=".6"/>
+  <circle cx="72" cy="58" r="2" fill="#ffd84d"/>
+  <circle cx="83" cy="68" r="2" fill="#ffd84d"/>
+  <circle cx="77" cy="78" r="2" fill="#ffd84d"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Weiss draft beer placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M55 31h45l-5 58H60L55 31Z" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M100 44h15c10 0 10 25-2 25h-12" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M61 47h33l-3 37H64l-3-37Z" fill="#ffd84d" opacity=".55"/>
+  <path d="M58 28c2-10 13-8 17-3 5-8 17-7 20 2" fill="none" stroke="#f4ffff" stroke-width="4" stroke-linecap="round"/>
+</svg>

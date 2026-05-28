@@ -39,8 +39,14 @@
   width: clamp(96px, 22vw, 150px);
 }
 
+.hero-panel__title-lockup {
+  justify-self: center;
+  text-align: center;
+}
+
 .hero-panel h1 {
   color: var(--color-white);
+  display: grid;
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 11vw, 6.8rem);
   letter-spacing: 0;
@@ -55,11 +61,12 @@
   font-size: clamp(1.05rem, 4vw, 2rem);
   font-weight: 800;
   letter-spacing: 0;
-  margin: 0.7rem 0 0;
+  margin: 0.75rem 0 0;
+  text-align: center;
   text-shadow: 0 0 12px rgba(0, 245, 255, 0.7);
 }
 
-.hero-panel span {
+.hero-panel__badge {
   border: 1px solid rgba(141, 255, 90, 0.52);
   border-radius: 7px;
   color: var(--color-green);
@@ -69,6 +76,24 @@
   justify-self: start;
   padding: 0.45rem 0.65rem;
   text-transform: uppercase;
+}
+
+.hero-panel__tools {
+  align-self: stretch;
+  display: grid;
+  gap: 0.75rem;
+  justify-items: end;
+}
+
+.hero-panel__image-button {
+  background: transparent;
+  border: 0;
+  color: var(--color-yellow);
+  cursor: pointer;
+  display: grid;
+  gap: 0.45rem;
+  justify-items: end;
+  padding: 0;
 }
 
 .hero-panel__reference {
@@ -81,6 +106,44 @@
   object-fit: cover;
   object-position: top;
   width: min(30vw, 180px);
+}
+
+.hero-panel__image-action {
+  border: 1px solid rgba(255, 216, 77, 0.4);
+  border-radius: 7px;
+  color: var(--color-yellow);
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0.36rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.language-select {
+  align-items: end;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: end;
+  max-width: 148px;
+  width: 100%;
+}
+
+.language-select span {
+  color: var(--color-cyan);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.language-select select {
+  background: rgba(2, 8, 11, 0.92);
+  border: 1px solid var(--color-cyan);
+  border-radius: 7px;
+  color: var(--color-white);
+  min-height: 42px;
+  padding: 0.5rem;
+  width: 100%;
 }
 
 .mission-panel {
@@ -117,5 +180,11 @@
     height: 180px;
     justify-self: stretch;
     width: 100%;
+  }
+
+  .hero-panel__tools,
+  .hero-panel__image-button,
+  .language-select {
+    justify-items: stretch;
   }
 }

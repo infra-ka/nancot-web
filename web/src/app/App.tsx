@@ -5,31 +5,35 @@ import { CartDrawer } from "../common-lib/components/CartDrawer/CartDrawer";
 import { CategorySection } from "../common-lib/components/CategorySection/CategorySection";
 import { CheckoutModal } from "../common-lib/components/CheckoutModal/CheckoutModal";
 import { CyberButton } from "../common-lib/components/CyberButton/CyberButton";
+import { ImagePreviewModal } from "../common-lib/components/ImagePreviewModal/ImagePreviewModal";
 import { NeonPanel } from "../common-lib/components/NeonPanel/NeonPanel";
 import { ProductModal } from "../common-lib/components/ProductModal/ProductModal";
-import { categoryLabels, janelinhaMenu } from "../common-lib/data/janelinhaMenu";
 import { useCart } from "../common-lib/hooks/useCart";
+import { useI18n } from "../common-lib/i18n/I18nProvider";
+import { localeOptions, LocaleCode } from "../common-lib/i18n/locales";
 import { MenuCategory, MenuItem } from "../common-lib/types/menu";
 import { formatCurrency } from "../common-lib/utils/format";
 
 const categories: MenuCategory[] = ["subs", "chopes", "cafe", "bebidas"];
 
 export default function App() {
+  const { locale, menu, messages, setLocale } = useI18n();
   const cart = useCart();
   const [selectedProduct, setSelectedProduct] = useState<MenuItem | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false);
   const [physicalQrStatus, setPhysicalQrStatus] = useState<string | undefined>();
 
   const itemsByCategory = useMemo(
     () =>
       categories.map((category) => ({
         category,
-        title: categoryLabels[category],
-        items: janelinhaMenu.filter((item) => item.category === category)
+        title: messages.categories[category],
+        items: menu.filter((item) => item.category === category)
       })),
-    []
+    [menu, messages]
   );
 
   function addProduct(quantity: number, selectedOptions?: Record<string, string>) {
@@ -50,28 +54,46 @@ export default function App() {
         <div className="hero-panel__sandwich" aria-hidden="true">
           🥖
         </div>
-        <div>
-          <h1>JANELINHA SUBS</h1>
-          <p>CHOPE E CAFÉ</p>
+        <div className="hero-panel__title-lockup">
+          <h1>
+            <span>JANELINHA</span>
+            <span>SUBS</span>
+          </h1>
+          <p>{messages.app.subtitle}</p>
         </div>
-        <img
-          alt="Neon Janelinha Subs menu reference"
-          className="hero-panel__reference"
-          src="/assets/janelinha-menu-reference.jpeg"
-        />
-        <span>Nancot Web Menu v1</span>
+        <div className="hero-panel__tools">
+          <button className="hero-panel__image-button" onClick={() => setIsImagePreviewOpen(true)} type="button">
+            <img
+              alt={messages.app.imageAlt}
+              className="hero-panel__reference"
+              src="/assets/janelinha-menu-reference.jpeg"
+            />
+            <span className="hero-panel__image-action">{messages.app.imageOpen}</span>
+          </button>
+          <label className="language-select">
+            <span>{messages.app.languageLabel}</span>
+            <select value={locale} onChange={(event) => setLocale(event.target.value as LocaleCode)}>
+              {localeOptions.map((option) => (
+                <option key={option.code} value={option.code}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <span className="hero-panel__badge">{messages.app.badge}</span>
       </header>
 
       <NeonPanel variant="green" className="mission-panel">
-        <p>Active mission</p>
-        <strong>Live the purpose. Make a difference. Share love.</strong>
+        <p>{messages.mission.label}</p>
+        <strong>{messages.mission.text}</strong>
       </NeonPanel>
 
       {itemsByCategory.map(({ category, title, items }) => (
         <CategorySection category={category} items={items} key={category} onSelect={setSelectedProduct} title={title} />
       ))}
 
-      <CyberButton className="floating-cart" onClick={() => setIsCartOpen(true)} aria-label="Open cart">
+      <CyberButton className="floating-cart" onClick={() => setIsCartOpen(true)} aria-label={messages.app.openCart}>
         <ShoppingCart size={19} />
         {cart.items.length} · {formatCurrency(cart.subtotal)}
       </CyberButton>
@@ -118,8 +140,16 @@ export default function App() {
           onClose={() => setIsCameraOpen(false)}
           onDetected={() => {
             setIsCameraOpen(false);
-            setPhysicalQrStatus("Physical QR Code detected — payment pending confirmation.");
+            setPhysicalQrStatus(messages.app.physicalQrDetected);
           }}
+        />
+      ) : null}
+
+      {isImagePreviewOpen ? (
+        <ImagePreviewModal
+          alt={messages.app.imageAlt}
+          onClose={() => setIsImagePreviewOpen(false)}
+          src="/assets/janelinha-menu-reference.jpeg"
         />
       ) : null}
     </main>

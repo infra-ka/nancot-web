@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Philadelphia Sub Cheese Steak placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M22 47c13-22 103-22 117-2 6 9 0 22-13 25-30 7-77 7-103-1-9-3-9-13-1-22Z" fill="none" stroke="#ffd84d" stroke-width="5"/>
+  <path d="M36 61c8-9 18 7 29-2 10-8 20 7 31-1 11-9 21 7 32-1" fill="none" stroke="#ff9b32" stroke-width="5"/>
+  <path d="M46 53h17m14 0h20m13 0h18" stroke="#8dff5a" stroke-width="4" stroke-linecap="round"/>
+</svg>

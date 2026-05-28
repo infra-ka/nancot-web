@@ -59,6 +59,35 @@ npm run dev:live
 
 `npm run dev:live` uses a strict `5173` port so the browser URL stays stable during this session.
 
+## Test Commands
+
+Run the current Vitest suite from `web/`:
+
+```bash
+cd C:\Users\nanco\Projects\nancot\nancot-web-menu-v1\web
+npm test
+```
+
+Run tests in watch mode while developing:
+
+```bash
+npm run test:watch
+```
+
+Current test coverage lives in `web/test` and covers:
+
+- `useCart`: add item, remove item, quantity updates, subtotal math, and `localStorage` persistence.
+- `createOrderProtocol`: deterministic UTC timestamp + establishment-name seeded protocol generation.
+- `App` happy paths: customize Italian Sub, add to cart, reach PIX checkout, copy PIX code, simulate card payment, and show confirmation protocol.
+
+Known test gaps for upcoming passes:
+
+- Camera permission states and stream cleanup.
+- Cart edge cases around multiple items and duplicate customizations.
+- Debit card path.
+- Modal close behavior and empty-cart checkout guard.
+- Visual/responsive regression coverage.
+
 ## Current Development Note
 
 We are prioritizing the dev build and browser iteration first. The TDD scaffolding exists in `web/test`, but full test/build hardening can continue after the dev experience and first UI pass are validated.

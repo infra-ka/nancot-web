@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useI18n } from "../../i18n/I18nProvider";
 import { MenuItem } from "../../types/menu";
 import { formatCurrency } from "../../utils/format";
 import { CyberButton } from "../CyberButton/CyberButton";
@@ -13,6 +14,7 @@ type ProductModalProps = {
 };
 
 export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: ProductModalProps) {
+  const { messages } = useI18n();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>(() =>
@@ -30,13 +32,13 @@ export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: Produc
   return (
     <div className="modal-backdrop" role="presentation">
       <section aria-modal="true" className="product-modal" role="dialog" aria-label={item.name}>
-        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label="Close product modal">
+        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label={messages.product.closeModal}>
           <X size={20} />
         </button>
         <div className="product-modal__hero" aria-hidden="true">
           {item.imageEmoji}
         </div>
-        <p className="product-modal__eyebrow">Customize order</p>
+        <p className="product-modal__eyebrow">{messages.product.customizeOrder}</p>
         <h2>{item.name}</h2>
         <p className="product-modal__description">{item.description}</p>
         <strong className="product-modal__price">{formatCurrency(item.price)}</strong>
@@ -69,13 +71,13 @@ export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: Produc
         ))}
 
         <div className="quantity-row">
-          <span>Quantity</span>
+          <span>{messages.product.quantity}</span>
           <div className="quantity-row__controls">
-            <CyberButton aria-label="Decrease quantity" onClick={() => setQuantity((value) => Math.max(1, value - 1))} variant="ghost">
+            <CyberButton aria-label={messages.product.decreaseQuantity} onClick={() => setQuantity((value) => Math.max(1, value - 1))} variant="ghost">
               -
             </CyberButton>
             <strong>{quantity}</strong>
-            <CyberButton aria-label="Increase quantity" onClick={() => setQuantity((value) => value + 1)} variant="ghost">
+            <CyberButton aria-label={messages.product.increaseQuantity} onClick={() => setQuantity((value) => value + 1)} variant="ghost">
               +
             </CyberButton>
           </div>
@@ -83,11 +85,11 @@ export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: Produc
 
         <div className="product-modal__actions">
           <CyberButton onClick={handleAdd} className="haptic-target--confirm">
-            Add to order · {formatCurrency(total)}
+            {messages.product.addToOrder} · {formatCurrency(total)}
           </CyberButton>
           {added ? (
             <CyberButton onClick={onNextStep} variant="secondary">
-              Next step
+              {messages.product.nextStep}
             </CyberButton>
           ) : null}
         </div>

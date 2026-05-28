@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">IPA draft beer placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M58 30h44l-5 59H62L58 30Z" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M102 44h14c10 0 10 26-2 26h-12" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M64 47h31l-3 37H67l-3-37Z" fill="#ff4d6d" opacity=".45"/>
+  <path d="M71 26c6-11 17-10 23 0" fill="none" stroke="#f4ffff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M77 58l8 8m0-8-8 8" stroke="#ffd84d" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,5 +1,6 @@
 import { CreditCard, Landmark, QrCode, X } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useI18n } from "../../i18n/I18nProvider";
 import { CartItem } from "../../types/cart";
 import { PaymentMethod } from "../../types/checkout";
 import { formatCurrency } from "../../utils/format";
@@ -25,6 +26,7 @@ export function CheckoutModal({
   onOpenCamera,
   onConfirmed
 }: CheckoutModalProps) {
+  const { messages } = useI18n();
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod | null>(null);
   const [protocol, setProtocol] = useState<string | null>(null);
   const [cardName, setCardName] = useState("");
@@ -46,15 +48,15 @@ export function CheckoutModal({
   return (
     <div className="modal-backdrop" role="presentation">
       <section aria-modal="true" aria-label="Checkout" className="checkout-modal" role="dialog">
-        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label="Close checkout">
+        <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label={messages.checkout.close}>
           <X size={20} />
         </button>
-        <p className="checkout-modal__eyebrow">Mocked checkout</p>
-        <h2>{protocol ? "Order confirmed" : "Finish order"}</h2>
+        <p className="checkout-modal__eyebrow">{messages.checkout.eyebrow}</p>
+        <h2>{protocol ? messages.checkout.confirmedTitle : messages.checkout.finishOrder}</h2>
 
         {protocol ? (
           <div className="checkout-confirmation">
-            <p>Order confirmed — protocol {protocol}</p>
+            <p>{messages.checkout.confirmedMessage} {protocol}</p>
             <strong>{protocol}</strong>
             <CyberButton onClick={onClose}>Close</CyberButton>
           </div>
@@ -70,24 +72,24 @@ export function CheckoutModal({
                 </div>
               ))}
               <div className="checkout-review__total">
-                <span>Total</span>
+                <span>{messages.checkout.total}</span>
                 <strong>{formatCurrency(subtotal)}</strong>
               </div>
             </div>
 
-            <div className="payment-grid" aria-label="Payment method">
+            <div className="payment-grid" aria-label={messages.checkout.paymentMethod}>
               <CyberButton
                 onClick={() => setPaymentMethod("pix")}
                 className={paymentMethod === "pix" ? "haptic-target--selected" : ""}
                 variant="secondary"
               >
-                <QrCode size={18} /> PIX
+                <QrCode size={18} /> {messages.checkout.pix}
               </CyberButton>
               <CyberButton onClick={() => setPaymentMethod("credit")} variant="ghost">
-                <CreditCard size={18} /> Credit card
+                <CreditCard size={18} /> {messages.checkout.credit}
               </CyberButton>
               <CyberButton onClick={() => setPaymentMethod("debit")} variant="ghost">
-                <Landmark size={18} /> Debit card
+                <Landmark size={18} /> {messages.checkout.debit}
               </CyberButton>
             </div>
 
@@ -100,25 +102,25 @@ export function CheckoutModal({
             {paymentMethod === "credit" || paymentMethod === "debit" ? (
               <form className="card-form">
                 <label>
-                  Printed name
+                  {messages.checkout.printedName}
                   <input value={cardName} onChange={(event) => setCardName(event.target.value)} />
                 </label>
                 <label>
-                  Card number
+                  {messages.checkout.cardNumber}
                   <input inputMode="numeric" value={cardNumber} onChange={(event) => setCardNumber(event.target.value)} />
                 </label>
                 <div className="card-form__row">
                   <label>
-                    Expiration date
+                    {messages.checkout.expirationDate}
                     <input placeholder="MM/YY" value={expiration} onChange={(event) => setExpiration(event.target.value)} />
                   </label>
                   <label>
-                    CVV
+                    {messages.checkout.cvv}
                     <input inputMode="numeric" value={cvv} onChange={(event) => setCvv(event.target.value)} />
                   </label>
                 </div>
                 <CyberButton disabled={!canSimulateCard} onClick={confirmOrder} variant="secondary">
-                  Simulate card payment
+                  {messages.checkout.simulateCardPayment}
                 </CyberButton>
               </form>
             ) : null}

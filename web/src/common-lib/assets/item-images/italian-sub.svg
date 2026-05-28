@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Italian Sub placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M24 45c10-22 96-26 113-5 7 9 2 22-10 25-25 7-76 9-101 0-10-4-9-12-2-20Z" fill="none" stroke="#ffd84d" stroke-width="5"/>
+  <path d="M28 57c23 12 73 13 106 1" fill="none" stroke="#8dff5a" stroke-width="5"/>
+  <path d="M41 63c13-9 20 7 34-2 13-9 21 8 35-1" fill="none" stroke="#ff4d6d" stroke-width="4"/>
+  <path d="M42 36c22-7 50-8 77-2" fill="none" stroke="#ff9b32" stroke-width="3"/>
+</svg>

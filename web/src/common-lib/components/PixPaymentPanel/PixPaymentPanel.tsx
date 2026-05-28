@@ -1,6 +1,7 @@
 import { Camera, CheckCircle2, Copy } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { useState } from "react";
+import { useI18n } from "../../i18n/I18nProvider";
 import { CyberButton } from "../CyberButton/CyberButton";
 import "./PixPaymentPanel.css";
 
@@ -13,6 +14,7 @@ type PixPaymentPanelProps = {
 };
 
 export function PixPaymentPanel({ onPaid, onScanPhysicalQrCode }: PixPaymentPanelProps) {
+  const { messages } = useI18n();
   const [copied, setCopied] = useState(false);
 
   async function copyPixCode() {
@@ -22,25 +24,25 @@ export function PixPaymentPanel({ onPaid, onScanPhysicalQrCode }: PixPaymentPane
 
   return (
     <div className="pix-panel">
-      <div className="pix-panel__qr" aria-label="Mocked PIX QR Code">
+      <div className="pix-panel__qr" aria-label={messages.pix.qrLabel}>
         <QRCodeSVG value={mockPixCode} size={168} bgColor="#02080b" fgColor="#8dff5a" />
       </div>
       <label className="pix-panel__code">
-        PIX copy-and-paste code
+        {messages.pix.codeLabel}
         <textarea readOnly value={mockPixCode} />
       </label>
       <div className="pix-panel__actions">
         <CyberButton onClick={copyPixCode} variant="secondary">
-          <Copy size={18} /> Copy PIX code
+          <Copy size={18} /> {messages.pix.copy}
         </CyberButton>
         <CyberButton onClick={onPaid} className="haptic-target--confirm">
-          <CheckCircle2 size={18} /> I have paid
+          <CheckCircle2 size={18} /> {messages.pix.paid}
         </CyberButton>
         <CyberButton onClick={onScanPhysicalQrCode} variant="ghost">
-          <Camera size={18} /> Scan physical QR Code
+          <Camera size={18} /> {messages.pix.scan}
         </CyberButton>
       </div>
-      {copied ? <p className="pix-panel__feedback">PIX code copied.</p> : null}
+      {copied ? <p className="pix-panel__feedback">{messages.pix.copied}</p> : null}
     </div>
   );
 }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" role="img" aria-labelledby="title">
+  <title id="title">Juice placeholder</title>
+  <rect width="160" height="110" rx="8" fill="#02080b"/>
+  <path d="M53 36h57l-8 53H62L53 36Z" fill="none" stroke="#00f5ff" stroke-width="4"/>
+  <path d="M62 55h39l-5 29H67l-5-29Z" fill="#ffd84d" opacity=".56"/>
+  <path d="M96 34l16-15" stroke="#8dff5a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M69 65c8 5 16-4 25 2" fill="none" stroke="#ff9b32" stroke-width="4"/>
+</svg>

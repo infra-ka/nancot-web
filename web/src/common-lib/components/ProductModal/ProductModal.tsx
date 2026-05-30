@@ -36,7 +36,7 @@ export function ProductModal({ item, onClose, onAddToOrder, onNextStep }: Produc
         <button className="modal-close haptic-target haptic-target--danger" onClick={onClose} aria-label={messages.product.closeModal}>
           <X size={20} />
         </button>
-        <div className="product-modal__hero" aria-hidden="true">
+        <div className="product-modal__main" aria-hidden="true">
           <ItemImage alt={item.name} assetId={item.imageAssetId} fallbackEmoji={item.imageEmoji} size="modal" />
         </div>
         <p className="product-modal__eyebrow">{messages.product.customizeOrder}</p>

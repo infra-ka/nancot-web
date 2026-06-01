@@ -1,6 +1,6 @@
 import { MenuCategory } from "../types/menu";
 
-export type LocaleCode = "en" | "pt-BR" | "es" | "fr" | "it" | "de" | "ja" | "zh-CN";
+export type LocaleCode = "en" | "pt-BR" | "es" | "fr" | "it" | "de" | "ja" | "hi" | "ko-KR" | "zh-CN";
 
 export type LocaleMessages = {
   languageName: string;
@@ -244,6 +244,52 @@ const menuItems = {
     soda: { name: "ソーダ", description: "缶入りの各種オプション。" },
     juice: { name: "ジュース", description: "厳選フレーバー。" }
   },
+  hi: {
+    "italian-sub": {
+      name: "इटैलियन सब",
+      description: "सलामी, हैम, पेपरोनी, प्रोवोलोन, लेट्यूस, टमाटर, लाल प्याज, शिमला मिर्च, ऑलिव ऑयल और ओरेगैनो।",
+      optionLabels: { sauce: "एक सॉस चुनें" },
+      optionValues: { Ranch: "रैंच", Pesto: "पेस्टो", Aioli: "ऐओली" }
+    },
+    "philadelphia-sub": {
+      name: "फिलाडेल्फिया सब चीज़ स्टेक",
+      description: "पतले कटे बीफ, शिमला मिर्च, प्याज और सब ब्रेड।",
+      optionLabels: { cheese: "चीज़ चुनें" },
+      optionValues: { Swiss: "स्विस", Cheddar: "चेडर", Mozzarella: "मोज़रेला" }
+    },
+    "chicken-parma": { name: "चिकन पार्मा", description: "ब्रेडेड चिकन, मरीनारा सॉस, मोज़रेला, पार्मेज़ान और ओरेगैनो।" },
+    weiss: { name: "वाइस", description: "हल्की, ताज़गीभरी और फलों जैसी ड्राफ्ट बीयर, 5.2% ABV।" },
+    pilsen: { name: "पिल्सन", description: "क्लासिक, हल्की और संतुलित ड्राफ्ट बीयर, 4.7% ABV।" },
+    ipa: { name: "आईपीए", description: "गहरा स्वाद, फल-सुगंध और तेज़ कड़वाहट, 6.5% ABV।" },
+    cappuccino: { name: "कैपुचीनो", description: "एस्प्रेसो कॉफी, स्टीम्ड दूध और क्रीमी फोम के साथ।" },
+    "filtered-coffee": { name: "फिल्टर्ड कॉफी", description: "सरल, भरपूर और ताज़ा तैयार की गई कॉफी।" },
+    water: { name: "पानी", description: "सादा या स्पार्कलिंग पानी।" },
+    soda: { name: "सोडा", description: "कैन में विभिन्न विकल्प।" },
+    juice: { name: "जूस", description: "चुने हुए ताज़ा फ्लेवर।" }
+  },
+  "ko-KR": {
+    "italian-sub": {
+      name: "이탈리안 서브",
+      description: "살라미, 햄, 페퍼로니, 프로볼로네, 양상추, 토마토, 적양파, 피망, 올리브오일, 오레가노.",
+      optionLabels: { sauce: "소스 1개 추가" },
+      optionValues: { Ranch: "랜치", Pesto: "페스토", Aioli: "아이올리" }
+    },
+    "philadelphia-sub": {
+      name: "필라델피아 치즈스테이크 서브",
+      description: "얇게 썬 소고기, 피망, 양파, 서브 번.",
+      optionLabels: { cheese: "치즈 선택" },
+      optionValues: { Swiss: "스위스", Cheddar: "체다", Mozzarella: "모차렐라" }
+    },
+    "chicken-parma": { name: "치킨 파르마", description: "브레드 치킨, 마리나라 소스, 모차렐라, 파르메산, 오레가노." },
+    weiss: { name: "바이스", description: "가볍고 상큼하며 과일 향이 나는 드래프트 맥주, 도수 5.2%." },
+    pilsen: { name: "필스너", description: "클래식하고 가벼우며 균형 잡힌 드래프트 맥주, 도수 4.7%." },
+    ipa: { name: "IPA", description: "진한 풍미와 과일 향, 뚜렷한 쓴맛의 드래프트 맥주, 도수 6.5%." },
+    cappuccino: { name: "카푸치노", description: "에스프레소에 스팀 밀크와 크리미한 폼을 더한 커피." },
+    "filtered-coffee": { name: "필터 커피", description: "심플하고 바디감 있는 신선한 커피." },
+    water: { name: "물", description: "탄산 또는 무탄산." },
+    soda: { name: "탄산음료", description: "캔 음료 다양한 옵션." },
+    juice: { name: "주스", description: "엄선된 플레이버." }
+  },
   "zh-CN": {
     "italian-sub": { name: "意大利潜艇三明治", description: "萨拉米、火腿、意式辣香肠、普罗卧干酪、生菜、番茄、红洋葱、甜椒、橄榄油和牛至。", optionLabels: { sauce: "添加一种酱料" }, optionValues: { Ranch: "牧场酱", Pesto: "青酱", Aioli: "蒜香蛋黄酱" } },
     "philadelphia-sub": { name: "费城芝士牛排潜艇堡", description: "薄切牛肉、甜椒、洋葱和潜艇面包。", optionLabels: { cheese: "选择奶酪" }, optionValues: { Swiss: "瑞士奶酪", Cheddar: "切达", Mozzarella: "马苏里拉" } },
@@ -430,6 +476,50 @@ export const locales: Record<LocaleCode, LocaleMessages> = {
     camera: { ...shared.camera, title: "カメラスキャン", allow: "カメラを許可" },
     menuItems: menuItems.ja
   },
+  hi: {
+    ...shared,
+    languageName: "हिन्दी",
+    app: { ...shared.app, languageLabel: "भाषा", openCart: "कार्ट खोलें", imageOpen: "मेन्यू चित्र खोलें" },
+    mission: { label: "सक्रिय मिशन", text: "उद्देश्य के साथ जिएं। फर्क पैदा करें। प्यार बांटें।" },
+    categories: { subs: "सब", chopes: "ड्राफ्ट बीयर", cafe: "कॉफी", bebidas: "अन्य पेय" },
+    product: {
+      ...shared.product,
+      customizable: "कस्टमाइज़ेबल",
+      select: "चुनें",
+      selectAria: "चुनें",
+      customizeOrder: "ऑर्डर कस्टमाइज़ करें",
+      quantity: "मात्रा",
+      addToOrder: "ऑर्डर में जोड़ें",
+      nextStep: "अगला कदम"
+    },
+    cart: { ...shared.cart, title: "वर्तमान ऑर्डर", empty: "आपका ऑर्डर पहले आइटम की प्रतीक्षा कर रहा है।", subtotal: "उप-योग", finishOrder: "ऑर्डर पूरा करें" },
+    checkout: { ...shared.checkout, finishOrder: "ऑर्डर पूरा करें", confirmedTitle: "ऑर्डर पुष्टि हो गया", total: "कुल", credit: "क्रेडिट कार्ड", debit: "डेबिट कार्ड" },
+    pix: { ...shared.pix, copy: "PIX कोड कॉपी करें", paid: "मैंने भुगतान कर दिया", copied: "PIX कोड कॉपी हो गया।" },
+    camera: { ...shared.camera, title: "कैमरा स्कैन", allow: "कैमरा अनुमति दें" },
+    menuItems: menuItems.hi
+  },
+  "ko-KR": {
+    ...shared,
+    languageName: "한국어",
+    app: { ...shared.app, languageLabel: "언어", openCart: "장바구니 열기", imageOpen: "메뉴 이미지 열기" },
+    mission: { label: "활성 미션", text: "목적을 살고, 변화를 만들고, 사랑을 나누세요." },
+    categories: { subs: "서브", chopes: "드래프트 맥주", cafe: "커피", bebidas: "기타 음료" },
+    product: {
+      ...shared.product,
+      customizable: "맞춤 가능",
+      select: "선택",
+      selectAria: "선택",
+      customizeOrder: "주문 맞춤 설정",
+      quantity: "수량",
+      addToOrder: "주문에 추가",
+      nextStep: "다음 단계"
+    },
+    cart: { ...shared.cart, title: "현재 주문", empty: "첫 상품을 선택해 주세요.", subtotal: "소계", finishOrder: "주문 완료" },
+    checkout: { ...shared.checkout, finishOrder: "주문 완료", confirmedTitle: "주문이 확인되었습니다", total: "합계", credit: "신용카드", debit: "체크카드" },
+    pix: { ...shared.pix, copy: "PIX 코드 복사", paid: "결제했습니다", copied: "PIX 코드가 복사되었습니다." },
+    camera: { ...shared.camera, title: "카메라 스캔", allow: "카메라 허용" },
+    menuItems: menuItems["ko-KR"]
+  },
   "zh-CN": {
     ...shared,
     languageName: "中文普通话",
@@ -456,6 +546,8 @@ export const localeOptions = Object.entries(locales).map(([code, messages]) => (
       it: "IT",
       de: "DE",
       ja: "JA",
+      hi: "HI",
+      "ko-KR": "KO",
       "zh-CN": "ZH"
     }[code as LocaleCode]
   }`
